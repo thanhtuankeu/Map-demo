@@ -15,7 +15,12 @@ const LOCATION = {
   lat: 21.030924,
   lng: 105.782723
 };
+const LOCATION_EMXINHATMOTBAI = {
+  lat: 18.667574,
+  lng: 105.688045
+};
 const CENTER = [LOCATION.lat, LOCATION.lng];
+const CENTER2 = [ LOCATION_EMXINHATMOTBAI.lat,  LOCATION_EMXINHATMOTBAI.lng];
 const DEFAULT_ZOOM = 2;
 const ZOOM = 10;
 
@@ -99,6 +104,7 @@ const IndexPage = () => {
 
       <Map {...mapSettings}>
         <Marker ref={markerRef} position={CENTER} />
+        <Marker ref={markerRef} position={CENTER2} />
       </Map>
 
       <Container type="content" className="text-center home-start">
