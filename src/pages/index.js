@@ -47,15 +47,17 @@ const IndexPage = () => {
 
   async function mapEffect({ leafletElement } = {}) {
     if (!leafletElement) return;
+    /*
 
-    console.log('run here')
-    try {
-      let santa = await fetch('http://localhost:8080/student/show/');
-      let santaJson = await santa.json();
-      console.log('run there ', santaJson)
-    } catch (e) {
-      throw new Error(`Failed to find Santa!: ${e}`)
-    }
+      console.log('run here')
+      try {
+        let santa = await fetch('http://localhost:8080/student/show/');
+        let santaJson = await santa.json();
+        console.log('run there ', santaJson)
+      } catch (e) {
+        throw new Error(`Failed to find Santa!: ${e}`)
+      }
+    */
     const popup = L.popup({
       maxWidth: 800
     });
