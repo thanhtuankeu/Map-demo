@@ -20,9 +20,13 @@ const LOCATION_EMXINHATMOTBAI = {
   lng: 105.688045
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const CENTER2 = [ LOCATION_EMXINHATMOTBAI.lat,  LOCATION_EMXINHATMOTBAI.lng];
-const DEFAULT_ZOOM = 2;
+const CENTER2 = [LOCATION_EMXINHATMOTBAI.lat, LOCATION_EMXINHATMOTBAI.lng];
+const DEFAULT_ZOOM = 16;
 const ZOOM = 10;
+var corner1 = L.latLng(21.076136, 105.821969),
+  corner2 = L.latLng(21.012052, 105.760858),
+  bounds = L.latLngBounds(corner1, corner2);
+
 
 const timeToZoom = 2000;
 const timeToOpenPopupAfterZoom = 4000;
@@ -81,7 +85,6 @@ const IndexPage = () => {
         zoom: ZOOM,
         center: location
       });
-
       marker.bindPopup(popup);
 
       setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom);
@@ -93,6 +96,9 @@ const IndexPage = () => {
     center: CENTER,
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
+    minZoom: 15,
+    maxZoom : 17,
+    maxBounds : bounds,
     mapEffect
   };
 
@@ -101,7 +107,9 @@ const IndexPage = () => {
       <Helmet>
         <title>Home Page</title>
       </Helmet>
-
+      <div className="text-center" >
+        <h2>Thanh Tuan Map of thing </h2>
+      </div>
       <Map {...mapSettings}>
         <Marker ref={markerRef} position={CENTER} />
         <Marker ref={markerRef} position={CENTER2} />
